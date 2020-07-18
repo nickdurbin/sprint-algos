@@ -8,7 +8,6 @@ def count_th(word):
     # going to call this counter
     # intial value will be 0
     counter = 0
-    rest_of_word = word[len('th')-1:]
 
     # First base case will be to check the length of the input/word
     # If the word is shorter than 2m then simply return counter
@@ -20,14 +19,25 @@ def count_th(word):
     # meaning the stack will eventually end.
     # Our initial case should be to check if 'th' exists
     # If not, then simply return 0
-    elif 'th' is not in word:
+    if 'th' not in word:
         return counter
 
     # Here is where we will do our recrusion.
     # We reach here if 'th' exists 
     # We add 1 to our counter and also continue to check by calling our function again.
     # So, we call count_th and pass in the remaining word
-    else: 
-        (counter += 1) + count_th(word, rest)
+    else:
+        # Here we take the counter and add the new number of 'th'
+        # found in the word passed
+        counter = counter + 1
+
+        # Then we add the count and recursively run the function again
+        # The function takes one argument, which we want to pass
+        # The new string minus the 'th' we found
+        # Going to try using the replace method to remove the 'th'
+        # Found and set it to an empty string, then run 1 time
+        # As the third parameter. 
+        # Resource: https://www.geeksforgeeks.org/python-string-replace/?ref=lbp
+        counter + count_th(word.replace('th',' ', 1))
     
         return counter
