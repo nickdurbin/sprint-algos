@@ -116,7 +116,7 @@ class SortingRobot:
         # Check to see if we can move right
         # Move right with our new item
         while self.can_move_right():
-            self.move_right()
+            while self.move_right()
             
             # Compare if our item is greater than the list item
             # If so move forward or right in this instance
@@ -127,10 +127,17 @@ class SortingRobot:
             # Swap the item and move right
             elif self.compare_item == 1:
                 self.swap_item()
-                self.move_right()
 
-        while self.can_move_left():
-            self.move_left()
+            # If the 2 values are the same or if there is no value
+            # then swap items (pick up) and return
+            else self.compare_item == None:
+                self.swap_item()
+                return 
+
+            # We need to go back to the beginning
+            # So while we can move left do it.
+            while self.move_left():
+                
             
 
                 
