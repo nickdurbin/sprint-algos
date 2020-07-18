@@ -2,11 +2,11 @@
 
 ## Exercise I
 
-a)
+a) The number of times the equation is run is dependent on what n is. For instance, our while loop would run 2x if n = 2. If n = 3, then the loop runs 3 times. This makes me believe that the equation is linear. The amount of times the equation runs is dependent on the input of n. My best guess is O(n). When looking at it initially, I thought O(n^3).
 
-b)
+b) My initial thought is nested loops, which Artem said would be a giveaway for polynomial time or O(n^2). We would need to go through both loops in order to complete an iteration.
 
-c)
+c) We are using recursion in this function. This to me seems like it would then be O(n). The input of bunnies would then determine the iterations of this function.
 
 ## Exercise II
 
