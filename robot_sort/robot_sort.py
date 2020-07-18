@@ -97,7 +97,26 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # At first glance I was thinking a bubble sort
+        # Or an iterative sort or selection sort
+        # based on we are evalutaing
+        # Values and comparing to pick up or leave
+        # We also have the ability to move left and right only
+        # So, thinking of a long line of cards
+        # we grab one and compare as we move down the list
+        # Only picking up what is larger and moving right
+        
+        # Our robot should start at 0 in l 
+        # Currently not holding a card 
+        # So, we need to pick it up
+        # Then, move right and evaluate
+        if self._position == 0 and self._item is None:
+            self.swap_item()
+
+            for i in range(len(self._list) - 1, 0, -1):
+                self.compare_item
+
+
 
 
 if __name__ == "__main__":
