@@ -112,9 +112,28 @@ class SortingRobot:
         # Then, move right and evaluate
         if self._position == 0 and self._item is None:
             self.swap_item()
+            
+        # Check to see if we can move right
+        # Move right with our new item
+        while self.can_move_right():
+            self.move_right()
+            
+            # Compare if our item is greater than the list item
+            # If so move forward or right in this instance
+            if self.compare_item == -1:
+                self.move_right()
 
-            for i in range(len(self._list) - 1, 0, -1):
-                self.compare_item
+            # Else if the item is greater than ours
+            # Swap the item and move right
+            elif self.compare_item == 1:
+                self.swap_item()
+                self.move_right()
+
+        while self.can_move_left():
+            self.move_left()
+            
+
+                
 
 
 
