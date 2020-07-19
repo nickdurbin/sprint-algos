@@ -19,7 +19,7 @@ def count_th(word):
     # meaning the stack will eventually end.
     # Our initial case should be to check if 'th' exists
     # If not, then simply return 0
-    if 'th' not in word:
+    if word.find('th') == -1:
         return count
 
     # Here is where we will do our recrusion.
