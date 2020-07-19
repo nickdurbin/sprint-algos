@@ -139,6 +139,7 @@ class SortingRobot:
             while self.move_left():
                 # Probably will want to compare items again, but we should
                 # loop back to the other loop.
+                return
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
