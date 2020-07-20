@@ -125,6 +125,7 @@ class SortingRobot:
                 if self.compare_item() > 0:
                     # the robot is now holding the smaller item in hand
                     self.swap_item()
+                    print(self._list)
             # if the robot has made its way all the way to the end of the list
             # meaning we can no longer move right AND we have nothing to compare
             # which results in None, then let's swap items to complete the sorted list
@@ -132,23 +133,29 @@ class SortingRobot:
                 # If the above is true, then we simply swap item
                 # aka put down our card if we have not already
                 self.swap_item()
+                print(self._list)
                 # our list should now be sorted and we no longer
                 # need to be in the loop
                 # so we break it
-                print(self._time, self._list)
                 False
                 break
+            # Now we need to move through the list after we have reached the end
+            # Meaning, go back towards the beginning of the list.
             else:
                 while self.move_left():
                     # if either item is none
                     if self.compare_item() == None:
                         # we need to swap the item
                         self.swap_item()
+                        print(self._list)
                         # continue to move right
                         self.move_right()
                         # swap again and then break out of the loop
                         self.swap_item()
+                        print(self._list)
                         break
+
+b = [2, 5, 4, 1, 3, 9, 6, 8, 7]
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -156,7 +163,7 @@ if __name__ == "__main__":
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
-    robot = SortingRobot(l)
+    robot = SortingRobot(b)
 
     robot.sort()
     print(robot._list)
