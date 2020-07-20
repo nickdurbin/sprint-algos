@@ -109,37 +109,44 @@ class SortingRobot:
         # Our robot should start at 0 in l 
         # Currently not holding a card 
         # So, we need to pick it up
-        # Then, move right and evaluate
-        if self._position == 0 and self._item is None:
-            self.swap_item()
-            
-        # Check to see if we can move right
-        # Move right with our new item
-        while self.can_move_right():
+        # Then, compare our item with the item to our right
+        # Essentially swapping each item till we reach
+        # the final destination or no longer can move
+        # right. Which should mena our list is sorted.
+   
+        # pick up the first item
+        self.swap_item()
+        # While we have the ability to move right
+        while True:
             while self.move_right():
-            
-                # Compare if our item is greater than the list item
-                # If so move forward or right in this instance
-                if self.compare_item == -1:
-                    self.move_right()
-
-                # Else if the item is greater than ours
-                # Swap the item and move right
-                elif self.compare_item == 1:
+                # compare the current item with the item on its right
+                # if the held item's value is larger or greater than 0
+                # Let's swap items
+                if self.compare_item() > 0:
+                    # the robot is now holding the smaller item in hand
                     self.swap_item()
-
-            # If the 2 values are the same or if there is no value
-            # then swap items (pick up) and return
-            if self.compare_item == None:
+            # if the robot has made its way all the way to the end of the list
+            # meaning we can no longer move right AND we have nothing to compare
+            # which results in None, then let's swap items to complete the sorted list
+            if self.can_move_right() == False and self.compare_item() == None:
+                # If the above is true, then we simply swap item
                 self.swap_item()
-                return 
-
-            # We need to go back to the beginning
-            # So while we can move left do it.
-            while self.move_left():
-                # Probably will want to compare items again, but we should
-                # loop back to the other loop.
-                return
+                # our list should be sorted and we no longer
+                # need to be in the loop
+                # so we break it
+                False
+                break
+            else:
+                while self.move_left():
+                    # if either item is none
+                    if self.compare_item() == None:
+                        # we need to swap the item
+                        self.swap_item()
+                        # continue to move right
+                        self.move_right()
+                        # swap again and then break out of the loop
+                        self.swap_item()
+                        break
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
