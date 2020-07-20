@@ -113,7 +113,7 @@ class SortingRobot:
         # Essentially swapping each item till we reach
         # the final destination or no longer can move
         # right. Which should mena our list is sorted.
-   
+
         # pick up the first item
         self.swap_item()
         # While we have the ability to move right
@@ -135,7 +135,7 @@ class SortingRobot:
                 # our list should now be sorted and we no longer
                 # need to be in the loop
                 # so we break it
-                print(self._list)
+                print(self._time, self._list)
                 False
                 break
             else:
