@@ -104,7 +104,8 @@ class SortingRobot:
         # We also have the ability to move left and right only
         # So, thinking of a long line of cards
         # we grab one and compare as we move down the list
-        # Only picking up what is larger and moving right
+        # Only picking up what is smaller and taking it to
+        # the front of the list. Rinse and repeat.
         
         # Our robot should start at 0 in l 
         # Currently not holding a card 
@@ -112,7 +113,7 @@ class SortingRobot:
         # Then, compare our item with the item to our right
         # Essentially swapping each item till we reach
         # the final destination or no longer can move
-        # right. Which should mena our list is sorted.
+        # right. Which should mean our list is sorted.
 
         # pick up the first item
         self.swap_item()
@@ -124,6 +125,8 @@ class SortingRobot:
                 # Let's swap items
                 if self.compare_item() > 0:
                     # the robot is now holding the smaller item in hand
+                    # It will eventually look for the smallest and bring it 
+                    # to the front position.
                     self.swap_item()
                     print(self._list)
             # if the robot has made its way all the way to the end of the list
@@ -146,6 +149,10 @@ class SortingRobot:
                     # if either item is none
                     if self.compare_item() == None:
                         # we need to swap the item
+                        # we should be reaching a None position 
+                        # because we swapped to take the first card
+                        # now we want to surplant the lowest card in this position
+                        # and move right to swap and pick up the next
                         self.swap_item()
                         print(self._list)
                         # continue to move right
