@@ -130,10 +130,12 @@ class SortingRobot:
             # which results in None, then let's swap items to complete the sorted list
             if self.can_move_right() == False and self.compare_item() == None:
                 # If the above is true, then we simply swap item
+                # aka put down our card if we have not already
                 self.swap_item()
-                # our list should be sorted and we no longer
+                # our list should now be sorted and we no longer
                 # need to be in the loop
                 # so we break it
+                print(self._list)
                 False
                 break
             else:
